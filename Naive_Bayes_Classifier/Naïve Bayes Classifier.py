@@ -238,6 +238,7 @@ def name2features2(filename, B=128, FIX=3, LoadFile=True):
     else:
         babynames = filename.split('\n')
     n = len(babynames)
+    FIX = len(min(babynames, key=len))
     X = np.zeros((n, B))
     for i in range(n):
         X[i,:] = hashfeatures(babynames[i], B, FIX)
